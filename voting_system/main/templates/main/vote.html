@@ -1,0 +1,30 @@
+{% extends 'main/base.html' %}
+{% load bootstrap3 %}
+
+{% block content %}
+
+<div class="page-header">
+    <h1>Pick your Choice for the {{ post }} Positon</h1>
+</div>
+
+
+<form action="" method="POST" role="form">
+    {% csrf_token %}
+    {% if messages %}
+      <ul class="messages">
+          {% for message in messages %}
+            <li {% if messages.tags %} class="{{ messages.tags }}" {% endif %}>{{ message }}</li>
+          {% endfor %}
+      </ul>
+    {% endif %}
+    <ul>
+        <li>{{ post.num_votes }}</li>
+    </ul>
+    
+    {% bootstrap_form form %}
+    <button type="submit" class="btn btn-primary">Vote</button>
+</form>
+
+
+
+{% endblock %}

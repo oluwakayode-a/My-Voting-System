@@ -1,0 +1,17 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+
+
+<div class="jumbotron">
+    <div class="container">
+        <h1>Choose Wisely...</h1>
+    </div>
+</div>
+
+{% for post in all_posts %}
+<a href="{{ post.get_absolute_url }}"><button class="btn-lg">{{ post.post }}</button></a>
+
+{% endfor %}
+
+{% endblock content %}

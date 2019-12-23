@@ -1,0 +1,15 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <div class="container">
+        <h1>Vote Now!</h1>
+        <p>some other fancy text...</p>
+        <p>
+            <a href="{% url 'main:asp_post' %}" class="btn btn-primary btn-lg">Click Here to Vote.</a>
+        </p>
+    </div>
+</div>
+
+{% endblock %}

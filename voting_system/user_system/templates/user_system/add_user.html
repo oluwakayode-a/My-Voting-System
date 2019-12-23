@@ -1,0 +1,15 @@
+{% extends 'main/base.html' %}
+{% load bootstrap3 %}
+
+{% block content %}
+
+<form action="{% url 'users:add_user' %}" method="POST">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+
+    <button type="submit" class="btn-default btn">register</button>
+    <input type="hidden" name="next"  value="{% url 'main:index' %}">
+    
+</form>
+
+{% endblock content %}

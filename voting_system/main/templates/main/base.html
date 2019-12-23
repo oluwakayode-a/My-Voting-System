@@ -1,0 +1,49 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+<body>
+   
+   <!-------------------------------------------NAVBAR----------------------------------->
+   <nav class="navbar navbar-default" role="navigation">
+       <!-- Brand and toggle get grouped for better mobile display -->
+       <div class="navbar-header">
+           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+               <span class="sr-only">Toggle navigation</span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+           </button>
+           <a class="navbar-brand" href="{% url 'main:index' %}">Title</a>
+       </div>
+   
+       <!-- Collect the nav links, forms, and other content for toggling -->
+       <div class="collapse navbar-collapse navbar-ex1-collapse">
+           <ul class="nav navbar-nav navbar-right">
+               <li class="active"><a href="{% url 'main:add_aspirant' %}">add aspirant</a></li>
+               <li><a href="/admin">admin</a></li>
+               {% if user.is_authenticated %}
+               <li><a>Logged in as {{ user }}</a></li>
+               <li>
+               <button type="button" class="btn btn-default"><a href="{% url 'users:logout' %}">log out</a></button>
+               </li>
+               <li><a href="{% url 'users:add_user' %}">add user</a></li>
+               {% else %}
+               <li><a href="{% url 'users:login' %}">log in</a></li>
+               {% endif %}
+           </ul>
+       </div><!-- /.navbar-collapse -->
+    </nav>
+
+    {% block content %}{% endblock %}
+
+<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+</html>
